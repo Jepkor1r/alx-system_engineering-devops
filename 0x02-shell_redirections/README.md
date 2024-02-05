@@ -1,5 +1,6 @@
 SHELL REDIRECTIONS
-Standard Input (stdin):
+
+1. Standard Input (stdin):
 
 Symbol: <
 Usage: Redirects input from a file to a command.
