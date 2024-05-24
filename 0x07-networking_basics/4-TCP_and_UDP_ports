@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
-22
-443
+#netstat provides info on network connection
+#-l stands for listening port while -p is PID and of the listener process
+netstat -lp
