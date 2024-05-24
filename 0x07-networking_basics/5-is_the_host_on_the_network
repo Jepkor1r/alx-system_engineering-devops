@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Take user input for IP address
 # Number of pings to send
-if [ "$1"]
+if [ "$1" ]
 then
    ping -c 5 "$1"
 else
