@@ -11,6 +11,6 @@ else
    for ((i=1; i<=$count; i++))
    do
        #send a ping to capture the result
-       output=$(ping -c 1 $target)
+       output=$(ping -c 1 $input)
    done
 fi
