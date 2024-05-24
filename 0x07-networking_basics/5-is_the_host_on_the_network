@@ -1,16 +1,9 @@
 #!/usr/bin/env bash
 # Take user input for IP address
-input=""
 # Number of pings to send
-count=5
-if input==""
+if [ "$1"]
 then
-   echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
+   ping -c 5 "$1"
 else
-   #loop to send pings
-   for ((i=1; i<=$count; i++))
-   do
-       #send a ping to capture the result
-       output=$(ping -c 1 $input)
-   done
+   echo "Usage: 5-is_the_host_on_the_network {    IP_ADDRESS}"
 fi
