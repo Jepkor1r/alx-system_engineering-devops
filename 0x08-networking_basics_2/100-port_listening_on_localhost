@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+#port listening on a localhost
 netstat -l 98
