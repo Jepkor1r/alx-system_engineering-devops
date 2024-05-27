@@ -7,7 +7,7 @@ signal_handler() {
 	echo "I am invincible!!!"
 }
 
-trap signal_hander SIGTERM
+trap 'signal_handler' SIGTERM
 
 while :
 do
