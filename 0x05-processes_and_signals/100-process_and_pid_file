@@ -17,12 +17,16 @@ handle_sigint()
     echo "Y U no love me?!"
 }
 
+handle_sigquit()
+{
+    rm /var/run/myscript.pid
+}
+
 trap 'handle_sigterm' SIGTERM
 trap 'handle_sigint' SIGINT
+trap 'handle_sigquit()' SIGQUIT
 
 while :
 do
     echo "To infinity and beyond"
 done
-
-pkill -f -SIGKILL /var/run/myscript.pid
