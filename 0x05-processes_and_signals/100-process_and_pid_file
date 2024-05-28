@@ -24,7 +24,7 @@ handle_sigquit()
 
 trap 'handle_sigterm' SIGTERM
 trap 'handle_sigint' SIGINT
-trap 'handle_sigquit()' SIGQUIT
+trap 'handle_sigquit' SIGQUIT
 
 while :
 do
