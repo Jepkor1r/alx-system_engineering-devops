@@ -6,11 +6,32 @@
 # Displays Y U no love me?! when receiving a SIGINT signal
 # Deletes the file /var/run/myscript.pid and terminates itself when receiving a SIGQUIT or SIGTERM signal
 
-echo $$ > /var/run/myscript.pid
+PID_FILE="/var/run/myscript.pid"
 
-trap "echo 'I hate the kill command'; rm -rf /var/run/myscript.pid; exit" SIGTERM
-trap "echo 'Y U no love me?!'" SIGINT
-trap "rm -rf /var/run/holbertonscript.pid; exit" SIGQUIT
+create_pid_file() {
+    echo "$$" > "$PID_FILE"
+}
+
+cleanup() {
+    echo "Cleaning up..."
+    rm "$PID_FILE"
+    exit
+}
+
+display_hate_message() {
+    echo "I hate the kill command"
+}
+
+display_no_love_message() {
+    echo "Y U no love me?!"
+}
+
+# Register signal handlers
+trap cleanup EXIT
+trap 'display_hate_message' SIGTERM
+trap 'display_no_love_message' SIGINT
+
+create_pid_file
 
 while :
 do
