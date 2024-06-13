@@ -8,23 +8,9 @@
 
 echo $$ > /var/run/myscript.pid
 
-handle_sigquit() {
-    rm /var/run/myscript.pid
-    exit
-}
-
-handle_sigterm() {
-    echo "I hate the kill command"
-}
-
-handle_sigint() {
-    echo "Y U no love me?!"
-}
-
-# Register signal handlers
-trap 'handle_sigquit' EXIT
-trap 'handle_sigterm' SIGTERM
-trap 'handle_sigint' SIGINT
+trap "echo 'I hate the kill command'; rm -rf /var/run/myscript.pid; exit" SIGTERM
+trap "echo 'Y U no love me?!'" SIGINT
+trap "rm -rf /var/run/holbertonscript.pid; exit" SIGQUIT
 
 while :
 do
