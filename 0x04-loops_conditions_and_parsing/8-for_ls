@@ -5,8 +5,5 @@
 # Where only the part of the name after the first dash is displayed
 # Do not display hidden files
 for i in *; do
-    if [[ "$i" == *-* ]]; then
-        remove_first_dash="${i#*-}"
-        echo "$remove_first_dash"
-    fi
+    echo "$i" | cut -d'-' -f2
 done
