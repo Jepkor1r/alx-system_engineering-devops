@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Bash script that displays the content of the file /etc/passwd
+# script should only display:username, user id and Home directory path for the user
+
+# Use IFS (Internal Field Separator) to read ':' separated fields from /etc/passwd
+while IFS=':' read -r username password uid gid gecos home shell; do
+    echo "$username:""$uid:""$home"
+done < /etc/passwd
